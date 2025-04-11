@@ -1,0 +1,74 @@
+object Form3: TForm3
+  Left = 316
+  Height = 178
+  Top = 120
+  Width = 627
+  Caption = 'Поездки'
+  ClientHeight = 178
+  ClientWidth = 627
+  LCLVersion = '3.6.0.0'
+  object DBGrid1: TDBGrid
+    Left = 0
+    Height = 177
+    Top = -1
+    Width = 512
+    Color = clWindow
+    Columns = <    
+      item
+        Title.Caption = 'ID'
+        Width = 20
+        FieldName = 'id'
+      end    
+      item
+        Title.Caption = 'ID Маршрута'
+        Width = 80
+        FieldName = 'id_marshruta'
+      end    
+      item
+        Title.Caption = 'ID Транспортного средства'
+        Width = 160
+        FieldName = 'id_ts'
+      end    
+      item
+        Title.Caption = 'Время отправления'
+        Width = 120
+        FieldName = 'vremya_otpravleniya'
+      end    
+      item
+        Title.Caption = 'Время прибытия'
+        Width = 100
+        FieldName = 'vremya_pribitiya'
+      end>
+    DataSource = DataSource1
+    TabOrder = 0
+  end
+  object ZConnection1: TZConnection
+    ControlsCodePage = cCP_UTF8
+    AutoEncodeStrings = True
+    Properties.Strings = (
+      'AutoEncodeStrings=True'
+      'controls_cp=CP_UTF8'
+    )
+    Connected = True
+    HostName = '127.0.0.1'
+    Port = 0
+    Database = 'antonrr'
+    User = 'root'
+    Password = 'ZoomNicker666'
+    Protocol = 'MariaDB-10'
+    Left = 544
+    Top = 8
+  end
+  object ZTable1: TZTable
+    Connection = ZConnection1
+    Active = True
+    TableName = 'poezdki'
+    Left = 544
+    Top = 64
+  end
+  object DataSource1: TDataSource
+    DataSet = ZTable1
+    Left = 544
+    Top = 120
+  end
+end
